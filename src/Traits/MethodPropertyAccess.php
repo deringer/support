@@ -13,7 +13,18 @@ trait MethodPropertyAccess
 {
 
     /**
-     * Overload the get method to allow property access of methods.
+     * Overload the __isset method to correctly handle isset request.
+     *
+     * @return bool
+     */
+    public function __isset($key)
+    {
+        return method_exists($this, $key);
+    }
+
+
+    /**
+     * Overload the __get method to allow property access of methods.
      *
      * @param  string $key
      *

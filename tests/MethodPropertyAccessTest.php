@@ -16,6 +16,16 @@ class MethodPropertyAccessTest extends PHPUnit_Framework_TestCase
         $this->assertNull($class->secondValue);
     }
 
+
+    /** @test */
+    public function it_can_determine_that_a_property_exists()
+    {
+        $class = new ClassWithMethods();
+
+        $this->assertTrue(isset($class->firstValue));
+        $this->assertFalse(isset($class->secondValue));
+    }
+
 }
 
 class ClassWithMethods
